@@ -1,0 +1,29 @@
+# Keep the small prepared split, but exclude the source CSV and other artifacts.
+/data/raw/
+/data/processed/*
+*.csv
+*.parquet
+*.jsonl
+!/data/processed/raid_v1/
+!/data/processed/raid_v1/*.csv
+checkpoints/
+models/
+runs/
+AGENTS.md
+
+# Python and local tools
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Temporary files
+tmp/
+temp/
+*.log
+.DS_Store
+Thumbs.db

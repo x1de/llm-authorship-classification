@@ -1,0 +1,1631 @@
+{
+  "source": "RAID labeled train_none.csv",
+  "source_sha256": "c5467bca6fc7f5c728c676450c7f84ce401df6c6ccc6d82c47e3b5f3c6d6fce4",
+  "selection": {
+    "counts": {
+      "candidate_rows": 53484,
+      "duplicate_output_groups": 0,
+      "duplicate_prompt_groups": 121,
+      "eligible_groups": 13250,
+      "other_decoding": 80226,
+      "other_model": 307533,
+      "repetition_penalty": 26742,
+      "rows_read": 467985
+    },
+    "filters": {
+      "attack": "none",
+      "decoding": "sampling",
+      "repetition_penalty": "no"
+    },
+    "model_labels": {
+      "chatgpt": "ChatGPT",
+      "cohere-chat": "Cohere",
+      "llama-chat": "Llama",
+      "mistral-chat": "Mistral"
+    },
+    "domains": [
+      "abstracts",
+      "books",
+      "news",
+      "poetry",
+      "recipes",
+      "reddit",
+      "reviews",
+      "wiki"
+    ],
+    "prompts_per_domain": 250,
+    "eligible_matched_prompts_by_domain": {
+      "abstracts": 1766,
+      "books": 1779,
+      "news": 1737,
+      "poetry": 1703,
+      "recipes": 1771,
+      "reddit": 1774,
+      "reviews": 941,
+      "wiki": 1779
+    },
+    "split_method": "70/15/15 by matched source_id within each domain",
+    "split_prompt_counts": {
+      "test": 296,
+      "train": 1400,
+      "validation": 304
+    },
+    "split_row_counts": {
+      "test": 1184,
+      "train": 5600,
+      "validation": 1216
+    },
+    "seed": 448
+  },
+  "training": {
+    "seed": 448,
+    "epochs": 12,
+    "patience": 3,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "embedding_dim": 128,
+    "cnn_channels": 96,
+    "lstm_hidden": 128,
+    "dropout": 0.3,
+    "prompt_limit": 96,
+    "output_limit": 512,
+    "max_vocab": 50000,
+    "min_frequency": 2,
+    "vocabulary_size": 26133,
+    "torch_version": "2.10.0+cu126",
+    "device": "cuda",
+    "labels": [
+      "ChatGPT",
+      "Llama",
+      "Mistral",
+      "Cohere"
+    ]
+  },
+  "models": {
+    "cnn_input": {
+      "architecture": "cnn",
+      "mode": "input",
+      "best_epoch": 6,
+      "best_validation_macro_f1": 0.2077582447028762,
+      "test": {
+        "accuracy": 0.25,
+        "macro_precision": 0.25,
+        "macro_recall": 0.25,
+        "macro_f1": 0.20252028613251583,
+        "per_class_precision": {
+          "ChatGPT": 0.25,
+          "Llama": 0.25,
+          "Mistral": 0.25,
+          "Cohere": 0.25
+        },
+        "per_class_recall": {
+          "ChatGPT": 0.17229729729729729,
+          "Llama": 0.0033783783783783786,
+          "Mistral": 0.5709459459459459,
+          "Cohere": 0.2533783783783784
+        },
+        "per_class_f1": {
+          "ChatGPT": 0.20400000000000001,
+          "Llama": 0.006666666666666666,
+          "Mistral": 0.3477366255144033,
+          "Cohere": 0.2516778523489933
+        },
+        "confusion_matrix": [
+          [
+            51,
+            1,
+            169,
+            75
+          ],
+          [
+            51,
+            1,
+            169,
+            75
+          ],
+          [
+            51,
+            1,
+            169,
+            75
+          ],
+          [
+            51,
+            1,
+            169,
+            75
+          ]
+        ],
+        "confusion_labels": [
+          "ChatGPT",
+          "Llama",
+          "Mistral",
+          "Cohere"
+        ],
+        "loss": 1.3924943112038277
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.565428741318839,
+          "validation_loss": 1.4304565504977578,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.16642431216654463
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.4780565881729126,
+          "validation_loss": 1.4242040671800311,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.16986852689505172
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.4281305755887712,
+          "validation_loss": 1.4190492849600942,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.1
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.4190015472684587,
+          "validation_loss": 1.3962090831053884,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.19532483302975107
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.4133043725149972,
+          "validation_loss": 1.394806959127125,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.12831460674157302
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.4093716784885952,
+          "validation_loss": 1.3923617789619847,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.2077582447028762
+        },
+        {
+          "epoch": 7,
+          "train_loss": 1.4088717433384486,
+          "validation_loss": 1.4143720175090588,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.1255994601269276
+        },
+        {
+          "epoch": 8,
+          "train_loss": 1.4122810547692435,
+          "validation_loss": 1.394644608623103,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.1502980222786285
+        },
+        {
+          "epoch": 9,
+          "train_loss": 1.4119215726852417,
+          "validation_loss": 1.3911047107294987,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.19485859390070975
+        }
+      ]
+    },
+    "cnn_output": {
+      "architecture": "cnn",
+      "mode": "output",
+      "best_epoch": 9,
+      "best_validation_macro_f1": 0.7583509389188847,
+      "test": {
+        "accuracy": 0.754222972972973,
+        "macro_precision": 0.7591890132877945,
+        "macro_recall": 0.754222972972973,
+        "macro_f1": 0.750881685060629,
+        "per_class_precision": {
+          "ChatGPT": 0.8272425249169435,
+          "Llama": 0.8521400778210116,
+          "Mistral": 0.6776859504132231,
+          "Cohere": 0.6796875
+        },
+        "per_class_recall": {
+          "ChatGPT": 0.8412162162162162,
+          "Llama": 0.7398648648648649,
+          "Mistral": 0.5540540540540541,
+          "Cohere": 0.8817567567567568
+        },
+        "per_class_f1": {
+          "ChatGPT": 0.8341708542713567,
+          "Llama": 0.7920433996383363,
+          "Mistral": 0.6096654275092936,
+          "Cohere": 0.7676470588235293
+        },
+        "confusion_matrix": [
+          [
+            249,
+            8,
+            18,
+            21
+          ],
+          [
+            9,
+            219,
+            40,
+            28
+          ],
+          [
+            34,
+            24,
+            164,
+            74
+          ],
+          [
+            9,
+            6,
+            20,
+            261
+          ]
+        ],
+        "confusion_labels": [
+          "ChatGPT",
+          "Llama",
+          "Mistral",
+          "Cohere"
+        ],
+        "loss": 0.6365041321999317
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.3951931367601667,
+          "validation_loss": 1.109298908396771,
+          "validation_accuracy": 0.5098684210526315,
+          "validation_macro_f1": 0.48154172069791656
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0555081510543822,
+          "validation_loss": 0.9707879439780587,
+          "validation_accuracy": 0.6192434210526315,
+          "validation_macro_f1": 0.553528330762087
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.8791841026714869,
+          "validation_loss": 0.8121844765387083,
+          "validation_accuracy": 0.6677631578947368,
+          "validation_macro_f1": 0.6368980318899365
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.7331414982250759,
+          "validation_loss": 0.7571737476085362,
+          "validation_accuracy": 0.7014802631578947,
+          "validation_macro_f1": 0.7043918092645047
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.6388658557619368,
+          "validation_loss": 0.7780762903000179,
+          "validation_accuracy": 0.6669407894736842,
+          "validation_macro_f1": 0.681344329128801
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.5401757242849895,
+          "validation_loss": 0.7421805678229583,
+          "validation_accuracy": 0.7023026315789473,
+          "validation_macro_f1": 0.7112817925833644
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.4532905750615256,
+          "validation_loss": 0.6986852656853827,
+          "validation_accuracy": 0.7310855263157895,
+          "validation_macro_f1": 0.7214756086946272
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.3767323977606637,
+          "validation_loss": 0.6710632988496831,
+          "validation_accuracy": 0.7467105263157895,
+          "validation_macro_f1": 0.7482340498375085
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.3085331242425101,
+          "validation_loss": 0.6449665086049783,
+          "validation_accuracy": 0.7598684210526315,
+          "validation_macro_f1": 0.7583509389188847
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.24630287212984903,
+          "validation_loss": 0.6613806293983209,
+          "validation_accuracy": 0.7516447368421053,
+          "validation_macro_f1": 0.7519785565256594
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.19500350430607796,
+          "validation_loss": 0.701161131654915,
+          "validation_accuracy": 0.7442434210526315,
+          "validation_macro_f1": 0.7423666298361975
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.16691332727670669,
+          "validation_loss": 0.7391736323111936,
+          "validation_accuracy": 0.7516447368421053,
+          "validation_macro_f1": 0.7509645181129009
+        }
+      ]
+    },
+    "cnn_both": {
+      "architecture": "cnn",
+      "mode": "both",
+      "best_epoch": 11,
+      "best_validation_macro_f1": 0.7731963182139672,
+      "test": {
+        "accuracy": 0.7525337837837838,
+        "macro_precision": 0.7515987363136871,
+        "macro_recall": 0.7525337837837838,
+        "macro_f1": 0.7509348544803477,
+        "per_class_precision": {
+          "ChatGPT": 0.8172757475083057,
+          "Llama": 0.8206896551724138,
+          "Mistral": 0.6653992395437263,
+          "Cohere": 0.703030303030303
+        },
+        "per_class_recall": {
+          "ChatGPT": 0.831081081081081,
+          "Llama": 0.8040540540540541,
+          "Mistral": 0.5912162162162162,
+          "Cohere": 0.7837837837837838
+        },
+        "per_class_f1": {
+          "ChatGPT": 0.8241206030150754,
+          "Llama": 0.8122866894197952,
+          "Mistral": 0.6261180679785331,
+          "Cohere": 0.7412140575079872
+        },
+        "confusion_matrix": [
+          [
+            246,
+            9,
+            19,
+            22
+          ],
+          [
+            12,
+            238,
+            28,
+            18
+          ],
+          [
+            26,
+            37,
+            175,
+            58
+          ],
+          [
+            17,
+            6,
+            41,
+            232
+          ]
+        ],
+        "confusion_labels": [
+          "ChatGPT",
+          "Llama",
+          "Mistral",
+          "Cohere"
+        ],
+        "loss": 0.6311896209781235
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.3885859196526664,
+          "validation_loss": 1.0925555150759847,
+          "validation_accuracy": 0.5444078947368421,
+          "validation_macro_f1": 0.5139284030445328
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.0591829112597875,
+          "validation_loss": 0.9416023320273349,
+          "validation_accuracy": 0.6101973684210527,
+          "validation_macro_f1": 0.5478227386503393
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.8802935934066772,
+          "validation_loss": 0.7746695562412864,
+          "validation_accuracy": 0.7014802631578947,
+          "validation_macro_f1": 0.6748442922669045
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.7534539202281407,
+          "validation_loss": 0.7553317139023229,
+          "validation_accuracy": 0.6817434210526315,
+          "validation_macro_f1": 0.679304237960527
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.6520226732322147,
+          "validation_loss": 0.6900482907107002,
+          "validation_accuracy": 0.7236842105263158,
+          "validation_macro_f1": 0.7272114088460991
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.5642558754341943,
+          "validation_loss": 0.7021709500174773,
+          "validation_accuracy": 0.7088815789473685,
+          "validation_macro_f1": 0.7141510726006404
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.47995682554585595,
+          "validation_loss": 0.6475951224565506,
+          "validation_accuracy": 0.7491776315789473,
+          "validation_macro_f1": 0.7441640457767849
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.4037765557425363,
+          "validation_loss": 0.6882442973161998,
+          "validation_accuracy": 0.7335526315789473,
+          "validation_macro_f1": 0.7337769578307518
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.3272375990663256,
+          "validation_loss": 0.6626883074641228,
+          "validation_accuracy": 0.7475328947368421,
+          "validation_macro_f1": 0.7406673979772816
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.2660858792066574,
+          "validation_loss": 0.6478836685419083,
+          "validation_accuracy": 0.756578947368421,
+          "validation_macro_f1": 0.7561655535833711
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.22263260843498367,
+          "validation_loss": 0.6326112562888547,
+          "validation_accuracy": 0.7738486842105263,
+          "validation_macro_f1": 0.7731963182139672
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.18733532224382674,
+          "validation_loss": 0.6768908541845647,
+          "validation_accuracy": 0.7582236842105263,
+          "validation_macro_f1": 0.7581806827744417
+        }
+      ]
+    },
+    "lstm_input": {
+      "architecture": "lstm",
+      "mode": "input",
+      "best_epoch": 1,
+      "best_validation_macro_f1": 0.1,
+      "test": {
+        "accuracy": 0.25,
+        "macro_precision": 0.0625,
+        "macro_recall": 0.25,
+        "macro_f1": 0.1,
+        "per_class_precision": {
+          "ChatGPT": 0.0,
+          "Llama": 0.0,
+          "Mistral": 0.0,
+          "Cohere": 0.25
+        },
+        "per_class_recall": {
+          "ChatGPT": 0.0,
+          "Llama": 0.0,
+          "Mistral": 0.0,
+          "Cohere": 1.0
+        },
+        "per_class_f1": {
+          "ChatGPT": 0.0,
+          "Llama": 0.0,
+          "Mistral": 0.0,
+          "Cohere": 0.4
+        },
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            296
+          ],
+          [
+            0,
+            0,
+            0,
+            296
+          ],
+          [
+            0,
+            0,
+            0,
+            296
+          ],
+          [
+            0,
+            0,
+            0,
+            296
+          ]
+        ],
+        "confusion_labels": [
+          "ChatGPT",
+          "Llama",
+          "Mistral",
+          "Cohere"
+        ],
+        "loss": 1.3921039587742574
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.3954121269498552,
+          "validation_loss": 1.392097140613355,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.1
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.3891771064485823,
+          "validation_loss": 1.3868396062599986,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.1
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.3874152898788452,
+          "validation_loss": 1.3868717331635325,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.1
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.3873810359409877,
+          "validation_loss": 1.3863291175741899,
+          "validation_accuracy": 0.25,
+          "validation_macro_f1": 0.1
+        }
+      ]
+    },
+    "lstm_output": {
+      "architecture": "lstm",
+      "mode": "output",
+      "best_epoch": 6,
+      "best_validation_macro_f1": 0.6283035058630233,
+      "test": {
+        "accuracy": 0.6055743243243243,
+        "macro_precision": 0.6183753531059585,
+        "macro_recall": 0.6055743243243243,
+        "macro_f1": 0.6005122526200223,
+        "per_class_precision": {
+          "ChatGPT": 0.7136363636363636,
+          "Llama": 0.7251908396946565,
+          "Mistral": 0.4806201550387597,
+          "Cohere": 0.5540540540540541
+        },
+        "per_class_recall": {
+          "ChatGPT": 0.5304054054054054,
+          "Llama": 0.6418918918918919,
+          "Mistral": 0.4189189189189189,
+          "Cohere": 0.831081081081081
+        },
+        "per_class_f1": {
+          "ChatGPT": 0.6085271317829456,
+          "Llama": 0.6810035842293907,
+          "Mistral": 0.4476534296028881,
+          "Cohere": 0.6648648648648648
+        },
+        "confusion_matrix": [
+          [
+            157,
+            19,
+            70,
+            50
+          ],
+          [
+            23,
+            190,
+            41,
+            42
+          ],
+          [
+            30,
+            36,
+            124,
+            106
+          ],
+          [
+            10,
+            17,
+            23,
+            246
+          ]
+        ],
+        "confusion_labels": [
+          "ChatGPT",
+          "Llama",
+          "Mistral",
+          "Cohere"
+        ],
+        "loss": 1.4254182714062769
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.2111357937540326,
+          "validation_loss": 1.144253964486875,
+          "validation_accuracy": 0.4942434210526316,
+          "validation_macro_f1": 0.47701430687664004
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.9969357381548201,
+          "validation_loss": 1.0515067012686479,
+          "validation_accuracy": 0.5411184210526315,
+          "validation_macro_f1": 0.5379268422774672
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.7629426504884448,
+          "validation_loss": 1.015529932944398,
+          "validation_accuracy": 0.5863486842105263,
+          "validation_macro_f1": 0.5834995133458583
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.5365256817851748,
+          "validation_loss": 1.0609605955450159,
+          "validation_accuracy": 0.6052631578947368,
+          "validation_macro_f1": 0.5945031087639832
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.3414563193491527,
+          "validation_loss": 1.1728724319683879,
+          "validation_accuracy": 0.618421052631579,
+          "validation_macro_f1": 0.6172302949899467
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.18100724373544966,
+          "validation_loss": 1.3355220803304721,
+          "validation_accuracy": 0.6274671052631579,
+          "validation_macro_f1": 0.6283035058630233
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.09212969229689666,
+          "validation_loss": 1.3841923718389713,
+          "validation_accuracy": 0.6167763157894737,
+          "validation_macro_f1": 0.619459965487912
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.04721909556537866,
+          "validation_loss": 1.6152776660103547,
+          "validation_accuracy": 0.6101973684210527,
+          "validation_macro_f1": 0.612793459175506
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.02888831321948341,
+          "validation_loss": 1.7745533122828132,
+          "validation_accuracy": 0.6118421052631579,
+          "validation_macro_f1": 0.6122648454350386
+        }
+      ]
+    },
+    "lstm_both": {
+      "architecture": "lstm",
+      "mode": "both",
+      "best_epoch": 11,
+      "best_validation_macro_f1": 0.5733615949791001,
+      "test": {
+        "accuracy": 0.581081081081081,
+        "macro_precision": 0.5755522573259123,
+        "macro_recall": 0.581081081081081,
+        "macro_f1": 0.5748475323055933,
+        "per_class_precision": {
+          "ChatGPT": 0.5768194070080862,
+          "Llama": 0.636963696369637,
+          "Mistral": 0.42916666666666664,
+          "Cohere": 0.6592592592592592
+        },
+        "per_class_recall": {
+          "ChatGPT": 0.722972972972973,
+          "Llama": 0.652027027027027,
+          "Mistral": 0.34797297297297297,
+          "Cohere": 0.6013513513513513
+        },
+        "per_class_f1": {
+          "ChatGPT": 0.6416791604197902,
+          "Llama": 0.6444073455759599,
+          "Mistral": 0.3843283582089552,
+          "Cohere": 0.6289752650176678
+        },
+        "confusion_matrix": [
+          [
+            214,
+            26,
+            39,
+            17
+          ],
+          [
+            47,
+            193,
+            37,
+            19
+          ],
+          [
+            79,
+            58,
+            103,
+            56
+          ],
+          [
+            31,
+            26,
+            61,
+            178
+          ]
+        ],
+        "confusion_labels": [
+          "ChatGPT",
+          "Llama",
+          "Mistral",
+          "Cohere"
+        ],
+        "loss": 2.049268998004295
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.3373832729884556,
+          "validation_loss": 1.2914876279078031,
+          "validation_accuracy": 0.4037828947368421,
+          "validation_macro_f1": 0.3811103016463658
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.2267562113489423,
+          "validation_loss": 1.2141452431678772,
+          "validation_accuracy": 0.4777960526315789,
+          "validation_macro_f1": 0.4718723740524752
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.0457689223970685,
+          "validation_loss": 1.1371850747811167,
+          "validation_accuracy": 0.5148026315789473,
+          "validation_macro_f1": 0.5016072117574564
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.831727865423475,
+          "validation_loss": 1.1077922472828312,
+          "validation_accuracy": 0.5452302631578947,
+          "validation_macro_f1": 0.5449989676808459
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.6548945450782776,
+          "validation_loss": 1.1670459352041547,
+          "validation_accuracy": 0.5699013157894737,
+          "validation_macro_f1": 0.5654376343506454
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.5017440673283168,
+          "validation_loss": 1.4533902281209041,
+          "validation_accuracy": 0.5337171052631579,
+          "validation_macro_f1": 0.5298872180451127
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.3617784991434642,
+          "validation_loss": 1.4571307866196883,
+          "validation_accuracy": 0.5682565789473685,
+          "validation_macro_f1": 0.5667784847752787
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.251272760289056,
+          "validation_loss": 1.5881062369597585,
+          "validation_accuracy": 0.553453947368421,
+          "validation_macro_f1": 0.5583531645270132
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.16932099016649382,
+          "validation_loss": 1.6919005748472715,
+          "validation_accuracy": 0.5633223684210527,
+          "validation_macro_f1": 0.5669606691604897
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.1098326938705785,
+          "validation_loss": 1.8658588120811863,
+          "validation_accuracy": 0.5550986842105263,
+          "validation_macro_f1": 0.5539713494106069
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.07755416981343712,
+          "validation_loss": 2.1256013779263747,
+          "validation_accuracy": 0.5773026315789473,
+          "validation_macro_f1": 0.5733615949791001
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.04107565567163485,
+          "validation_loss": 2.4095800079797445,
+          "validation_accuracy": 0.5575657894736842,
+          "validation_macro_f1": 0.5570315235507577
+        }
+      ]
+    }
+  },
+  "baselines": {
+    "training_only_fit": true,
+    "length_only_logistic_regression": {
+      "accuracy": 0.3783783783783784,
+      "macro_precision": 0.340885955017151,
+      "macro_recall": 0.3783783783783784,
+      "macro_f1": 0.33455770028890724,
+      "confusion_labels": [
+        "ChatGPT",
+        "Llama",
+        "Mistral",
+        "Cohere"
+      ],
+      "confusion_matrix": [
+        [
+          16,
+          181,
+          20,
+          79
+        ],
+        [
+          30,
+          217,
+          27,
+          22
+        ],
+        [
+          55,
+          84,
+          59,
+          98
+        ],
+        [
+          42,
+          61,
+          37,
+          156
+        ]
+      ]
+    },
+    "eight_style_features_logistic_regression": {
+      "accuracy": 0.4839527027027027,
+      "macro_precision": 0.48484158034891356,
+      "macro_recall": 0.48395270270270263,
+      "macro_f1": 0.4698053694078383,
+      "confusion_labels": [
+        "ChatGPT",
+        "Llama",
+        "Mistral",
+        "Cohere"
+      ],
+      "confusion_matrix": [
+        [
+          173,
+          61,
+          16,
+          46
+        ],
+        [
+          68,
+          172,
+          16,
+          40
+        ],
+        [
+          51,
+          85,
+          67,
+          93
+        ],
+        [
+          42,
+          54,
+          39,
+          161
+        ]
+      ]
+    },
+    "style_without_length_or_line_breaks_logistic_regression": {
+      "accuracy": 0.44341216216216217,
+      "macro_precision": 0.4344981245729047,
+      "macro_recall": 0.44341216216216217,
+      "macro_f1": 0.4227423826146016,
+      "confusion_labels": [
+        "ChatGPT",
+        "Llama",
+        "Mistral",
+        "Cohere"
+      ],
+      "confusion_matrix": [
+        [
+          169,
+          61,
+          18,
+          48
+        ],
+        [
+          61,
+          165,
+          29,
+          41
+        ],
+        [
+          77,
+          87,
+          45,
+          87
+        ],
+        [
+          45,
+          80,
+          25,
+          146
+        ]
+      ]
+    },
+    "tfidf_unigram_bigram_logistic_regression": {
+      "accuracy": 0.7829391891891891,
+      "macro_precision": 0.7813627224728312,
+      "macro_recall": 0.7829391891891891,
+      "macro_f1": 0.7803963104809195,
+      "confusion_labels": [
+        "ChatGPT",
+        "Llama",
+        "Mistral",
+        "Cohere"
+      ],
+      "confusion_matrix": [
+        [
+          257,
+          16,
+          13,
+          10
+        ],
+        [
+          11,
+          246,
+          26,
+          13
+        ],
+        [
+          20,
+          52,
+          183,
+          41
+        ],
+        [
+          14,
+          13,
+          28,
+          241
+        ]
+      ]
+    },
+    "top_positive_tfidf_terms_by_class": {
+      "ChatGPT": [
+        "various",
+        "this",
+        "crucial",
+        "these",
+        "solace",
+        "any",
+        "greatly",
+        "an",
+        "while",
+        "readers"
+      ],
+      "Cohere": [
+        "the",
+        "here is",
+        "is",
+        "because",
+        "abstract",
+        "when",
+        "movie",
+        "the movie",
+        "degrees",
+        "it is"
+      ],
+      "Llama": [
+        "sure here",
+        "here recipe",
+        "sure",
+        "recipe for",
+        "here",
+        "or",
+        "including",
+        "that",
+        "ve",
+        "ll"
+      ],
+      "Mistral": [
+        "recipe ingredients",
+        "follows the",
+        "enjoy your",
+        "overall",
+        "journey",
+        "the journey",
+        "and",
+        "the way",
+        "journey of",
+        "follows"
+      ]
+    },
+    "style_feature_names": [
+      "log_token_count",
+      "log_word_count",
+      "mean_word_length",
+      "lexical_diversity",
+      "punctuation_per_word",
+      "log_newline_count",
+      "uppercase_word_fraction",
+      "digit_fraction"
+    ],
+    "training_descriptives": {
+      "ChatGPT": {
+        "training_rows": 1400,
+        "median_tokens": 374.5,
+        "median_newlines": 12.0,
+        "median_lexical_diversity": 0.5615543503053957,
+        "median_punctuation_per_word": 0.14719822721956627
+      },
+      "Llama": {
+        "training_rows": 1400,
+        "median_tokens": 359.0,
+        "median_newlines": 12.0,
+        "median_lexical_diversity": 0.5151977087952697,
+        "median_punctuation_per_word": 0.16184971098265896
+      },
+      "Mistral": {
+        "training_rows": 1400,
+        "median_tokens": 253.0,
+        "median_newlines": 8.0,
+        "median_lexical_diversity": 0.557424156774072,
+        "median_punctuation_per_word": 0.1472236928155461
+      },
+      "Cohere": {
+        "training_rows": 1400,
+        "median_tokens": 212.0,
+        "median_newlines": 6.0,
+        "median_lexical_diversity": 0.5776700949367088,
+        "median_punctuation_per_word": 0.15125926930728884
+      }
+    },
+    "paired_length_comparison": {
+      "ChatGPT_longer_than_Cohere": {
+        "matched_prompts": 1400,
+        "fraction": 0.7578571428571429
+      },
+      "Llama_longer_than_Mistral": {
+        "matched_prompts": 1400,
+        "fraction": 0.8064285714285714
+      }
+    }
+  },
+  "cross_domain": {
+    "holdout_domains": [
+      "news",
+      "poetry"
+    ],
+    "protocol": "Train and validate on seven domains; test on the original test rows of the held-out domain.",
+    "results": {
+      "news": {
+        "train_rows": 4900,
+        "validation_rows": 1064,
+        "test_rows": 148,
+        "vocabulary_size": 23931,
+        "cnn": {
+          "original_in_domain_test": {
+            "accuracy": 0.6756756756756757,
+            "macro_precision": 0.6823717948717949,
+            "macro_recall": 0.6756756756756757,
+            "macro_f1": 0.6633970579260355,
+            "per_class_precision": {
+              "ChatGPT": 0.8461538461538461,
+              "Llama": 0.75,
+              "Mistral": 0.5333333333333333,
+              "Cohere": 0.6
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.8918918918918919,
+              "Llama": 0.4864864864864865,
+              "Mistral": 0.43243243243243246,
+              "Cohere": 0.8918918918918919
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.868421052631579,
+              "Llama": 0.5901639344262296,
+              "Mistral": 0.47761194029850745,
+              "Cohere": 0.7173913043478262
+            },
+            "confusion_matrix": [
+              [
+                33,
+                1,
+                2,
+                1
+              ],
+              [
+                0,
+                18,
+                11,
+                8
+              ],
+              [
+                4,
+                4,
+                16,
+                13
+              ],
+              [
+                2,
+                1,
+                1,
+                33
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 0.6890788851557551
+          },
+          "unseen_domain_test": {
+            "accuracy": 0.5337837837837838,
+            "macro_precision": 0.6531139140717382,
+            "macro_recall": 0.5337837837837838,
+            "macro_f1": 0.46770565896448435,
+            "per_class_precision": {
+              "ChatGPT": 0.7209302325581395,
+              "Llama": 1.0,
+              "Mistral": 0.4,
+              "Cohere": 0.4915254237288136
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.8378378378378378,
+              "Llama": 0.02702702702702703,
+              "Mistral": 0.4864864864864865,
+              "Cohere": 0.7837837837837838
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.7749999999999999,
+              "Llama": 0.052631578947368425,
+              "Mistral": 0.43902439024390244,
+              "Cohere": 0.6041666666666666
+            },
+            "confusion_matrix": [
+              [
+                31,
+                0,
+                4,
+                2
+              ],
+              [
+                4,
+                1,
+                19,
+                13
+              ],
+              [
+                4,
+                0,
+                18,
+                15
+              ],
+              [
+                4,
+                0,
+                4,
+                29
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 1.3214498210597683
+          },
+          "best_epoch": 9,
+          "best_validation_macro_f1": 0.761493140717273
+        },
+        "lstm": {
+          "original_in_domain_test": {
+            "accuracy": 0.527027027027027,
+            "macro_precision": 0.5567596338088141,
+            "macro_recall": 0.527027027027027,
+            "macro_f1": 0.5226227834079917,
+            "per_class_precision": {
+              "ChatGPT": 0.7272727272727273,
+              "Llama": 0.6571428571428571,
+              "Mistral": 0.4,
+              "Cohere": 0.4426229508196721
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.43243243243243246,
+              "Llama": 0.6216216216216216,
+              "Mistral": 0.32432432432432434,
+              "Cohere": 0.7297297297297297
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.5423728813559323,
+              "Llama": 0.6388888888888888,
+              "Mistral": 0.3582089552238806,
+              "Cohere": 0.5510204081632653
+            },
+            "confusion_matrix": [
+              [
+                16,
+                3,
+                8,
+                10
+              ],
+              [
+                3,
+                23,
+                5,
+                6
+              ],
+              [
+                2,
+                5,
+                12,
+                18
+              ],
+              [
+                1,
+                4,
+                5,
+                27
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 1.8024875537769214
+          },
+          "unseen_domain_test": {
+            "accuracy": 0.35135135135135137,
+            "macro_precision": 0.5162529550827424,
+            "macro_recall": 0.35135135135135137,
+            "macro_f1": 0.3216626373172071,
+            "per_class_precision": {
+              "ChatGPT": 0.8333333333333334,
+              "Llama": 0.5833333333333334,
+              "Mistral": 0.3611111111111111,
+              "Cohere": 0.2872340425531915
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.13513513513513514,
+              "Llama": 0.1891891891891892,
+              "Mistral": 0.35135135135135137,
+              "Cohere": 0.7297297297297297
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.23255813953488372,
+              "Llama": 0.28571428571428575,
+              "Mistral": 0.3561643835616438,
+              "Cohere": 0.4122137404580153
+            },
+            "confusion_matrix": [
+              [
+                5,
+                2,
+                5,
+                25
+              ],
+              [
+                0,
+                7,
+                10,
+                20
+              ],
+              [
+                0,
+                2,
+                13,
+                22
+              ],
+              [
+                1,
+                1,
+                8,
+                27
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 4.292568876936629
+          },
+          "best_epoch": 9,
+          "best_validation_macro_f1": 0.6248380806160068
+        }
+      },
+      "poetry": {
+        "train_rows": 4900,
+        "validation_rows": 1064,
+        "test_rows": 148,
+        "vocabulary_size": 24469,
+        "cnn": {
+          "original_in_domain_test": {
+            "accuracy": 0.7027027027027027,
+            "macro_precision": 0.7091059981684982,
+            "macro_recall": 0.7027027027027027,
+            "macro_f1": 0.7038735448509368,
+            "per_class_precision": {
+              "ChatGPT": 0.84375,
+              "Llama": 0.7142857142857143,
+              "Mistral": 0.5641025641025641,
+              "Cohere": 0.7142857142857143
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.7297297297297297,
+              "Llama": 0.6756756756756757,
+              "Mistral": 0.5945945945945946,
+              "Cohere": 0.8108108108108109
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.7826086956521738,
+              "Llama": 0.6944444444444444,
+              "Mistral": 0.5789473684210528,
+              "Cohere": 0.759493670886076
+            },
+            "confusion_matrix": [
+              [
+                27,
+                2,
+                5,
+                3
+              ],
+              [
+                2,
+                25,
+                6,
+                4
+              ],
+              [
+                3,
+                7,
+                22,
+                5
+              ],
+              [
+                0,
+                1,
+                6,
+                30
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 0.6680611790837468
+          },
+          "unseen_domain_test": {
+            "accuracy": 0.3716216216216216,
+            "macro_precision": 0.4305555555555556,
+            "macro_recall": 0.3716216216216216,
+            "macro_f1": 0.3264763667925708,
+            "per_class_precision": {
+              "ChatGPT": 0.5,
+              "Llama": 0.5,
+              "Mistral": 0.4,
+              "Cohere": 0.32222222222222224
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.05405405405405406,
+              "Llama": 0.32432432432432434,
+              "Mistral": 0.32432432432432434,
+              "Cohere": 0.7837837837837838
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.0975609756097561,
+              "Llama": 0.39344262295081966,
+              "Mistral": 0.3582089552238806,
+              "Cohere": 0.4566929133858268
+            },
+            "confusion_matrix": [
+              [
+                2,
+                6,
+                5,
+                24
+              ],
+              [
+                0,
+                12,
+                7,
+                18
+              ],
+              [
+                1,
+                5,
+                12,
+                19
+              ],
+              [
+                1,
+                1,
+                6,
+                29
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 1.8720394856220968
+          },
+          "best_epoch": 12,
+          "best_validation_macro_f1": 0.774933777391739
+        },
+        "lstm": {
+          "original_in_domain_test": {
+            "accuracy": 0.5135135135135135,
+            "macro_precision": 0.5090691294438923,
+            "macro_recall": 0.5135135135135135,
+            "macro_f1": 0.5003541171125424,
+            "per_class_precision": {
+              "ChatGPT": 0.5925925925925926,
+              "Llama": 0.6176470588235294,
+              "Mistral": 0.2903225806451613,
+              "Cohere": 0.5357142857142857
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.43243243243243246,
+              "Llama": 0.5675675675675675,
+              "Mistral": 0.24324324324324326,
+              "Cohere": 0.8108108108108109
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.5,
+              "Llama": 0.5915492957746479,
+              "Mistral": 0.2647058823529412,
+              "Cohere": 0.6451612903225806
+            },
+            "confusion_matrix": [
+              [
+                16,
+                2,
+                12,
+                7
+              ],
+              [
+                3,
+                21,
+                8,
+                5
+              ],
+              [
+                6,
+                8,
+                9,
+                14
+              ],
+              [
+                2,
+                3,
+                2,
+                30
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 1.4993211643115893
+          },
+          "unseen_domain_test": {
+            "accuracy": 0.3108108108108108,
+            "macro_precision": 0.23674395038214538,
+            "macro_recall": 0.3108108108108108,
+            "macro_f1": 0.25477657935285053,
+            "per_class_precision": {
+              "ChatGPT": 0.0,
+              "Llama": 0.3137254901960784,
+              "Mistral": 0.3181818181818182,
+              "Cohere": 0.3150684931506849
+            },
+            "per_class_recall": {
+              "ChatGPT": 0.0,
+              "Llama": 0.43243243243243246,
+              "Mistral": 0.1891891891891892,
+              "Cohere": 0.6216216216216216
+            },
+            "per_class_f1": {
+              "ChatGPT": 0.0,
+              "Llama": 0.36363636363636365,
+              "Mistral": 0.23728813559322035,
+              "Cohere": 0.41818181818181815
+            },
+            "confusion_matrix": [
+              [
+                0,
+                13,
+                4,
+                20
+              ],
+              [
+                0,
+                16,
+                5,
+                16
+              ],
+              [
+                2,
+                14,
+                7,
+                14
+              ],
+              [
+                0,
+                8,
+                6,
+                23
+              ]
+            ],
+            "confusion_labels": [
+              "ChatGPT",
+              "Llama",
+              "Mistral",
+              "Cohere"
+            ],
+            "loss": 5.370403753744589
+          },
+          "best_epoch": 12,
+          "best_validation_macro_f1": 0.6499578672977158
+        }
+      }
+    }
+  }
+}

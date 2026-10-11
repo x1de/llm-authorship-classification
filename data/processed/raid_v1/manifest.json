@@ -1,0 +1,109 @@
+{
+  "candidate_rows_by_domain_model": {
+    "abstracts": {
+      "chatgpt": 1766,
+      "cohere-chat": 1766,
+      "llama-chat": 1766,
+      "mistral-chat": 1766
+    },
+    "books": {
+      "chatgpt": 1781,
+      "cohere-chat": 1781,
+      "llama-chat": 1781,
+      "mistral-chat": 1781
+    },
+    "news": {
+      "chatgpt": 1780,
+      "cohere-chat": 1780,
+      "llama-chat": 1780,
+      "mistral-chat": 1780
+    },
+    "poetry": {
+      "chatgpt": 1771,
+      "cohere-chat": 1771,
+      "llama-chat": 1771,
+      "mistral-chat": 1771
+    },
+    "recipes": {
+      "chatgpt": 1772,
+      "cohere-chat": 1772,
+      "llama-chat": 1772,
+      "mistral-chat": 1772
+    },
+    "reddit": {
+      "chatgpt": 1779,
+      "cohere-chat": 1779,
+      "llama-chat": 1779,
+      "mistral-chat": 1779
+    },
+    "reviews": {
+      "chatgpt": 943,
+      "cohere-chat": 943,
+      "llama-chat": 943,
+      "mistral-chat": 943
+    },
+    "wiki": {
+      "chatgpt": 1779,
+      "cohere-chat": 1779,
+      "llama-chat": 1779,
+      "mistral-chat": 1779
+    }
+  },
+  "counts": {
+    "candidate_rows": 53484,
+    "duplicate_output_groups": 0,
+    "duplicate_prompt_groups": 121,
+    "eligible_groups": 13250,
+    "other_decoding": 80226,
+    "other_model": 307533,
+    "repetition_penalty": 26742,
+    "rows_read": 467985
+  },
+  "domains": [
+    "abstracts",
+    "books",
+    "news",
+    "poetry",
+    "recipes",
+    "reddit",
+    "reviews",
+    "wiki"
+  ],
+  "eligible_matched_prompts_by_domain": {
+    "abstracts": 1766,
+    "books": 1779,
+    "news": 1737,
+    "poetry": 1703,
+    "recipes": 1771,
+    "reddit": 1774,
+    "reviews": 941,
+    "wiki": 1779
+  },
+  "filters": {
+    "attack": "none",
+    "decoding": "sampling",
+    "repetition_penalty": "no"
+  },
+  "model_labels": {
+    "chatgpt": "ChatGPT",
+    "cohere-chat": "Cohere",
+    "llama-chat": "Llama",
+    "mistral-chat": "Mistral"
+  },
+  "prompts_per_domain": 250,
+  "seed": 448,
+  "selection": "SHA-256 ordering of seed, salt, and source_id",
+  "source_file": "train_none.csv",
+  "source_sha256": "c5467bca6fc7f5c728c676450c7f84ce401df6c6ccc6d82c47e3b5f3c6d6fce4",
+  "split_method": "70/15/15 by matched source_id within each domain",
+  "split_prompt_counts": {
+    "test": 296,
+    "train": 1400,
+    "validation": 304
+  },
+  "split_row_counts": {
+    "test": 1184,
+    "train": 5600,
+    "validation": 1216
+  }
+}
